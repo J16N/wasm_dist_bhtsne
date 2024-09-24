@@ -30,10 +30,10 @@ import init, { initThreadPool, DistbhtSNEf64 } from 'wasm-dist-bhtsne';
 const outputDim = 2;
 // example data format
 const exampleData = {
-    distances: [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0],
-    indices: [0, 11, 23, 43, 4, 5, 64, 7, 8, 9],
-    n_samples: 5,
-    n_neighbors: 2,
+    distances: [1.0, 2.0, 3.0, 4.0, ..., 5.0, 6.0, 7.0, 8.0, 9.0, 10.0],
+    indices: [0, 11, 23, 43, ..., 4, 5, 64, 7, 8, 9],
+    n_samples: 1000,
+    n_neighbors: 90,
 }
 
 (async {
@@ -59,7 +59,7 @@ const exampleData = {
             exampleData.distances, // precomputed distance matrix
             exampleData.indices, // precomputed indices matrix
             exampleData.n_samples, // number of vectors
-            exampleData.n_neighbors, // number of neighbors
+            exampleData.n_neighbors, // number of neighbors (must be 3 times of perplexity)
             opt
         );
 
@@ -106,7 +106,7 @@ Here is a list of hyperparameters that can be set in the JavaScript object, alon
 - `perplexity` (default: `20.0`): the perplexity value. It determines the balance between local and global aspects of the data. A good value lies between `5.0` and `50.0`.
 
 ## Acknowledgements
-Here are the list of people whom I would like to express my gratitude to for helping me with this project:
+Here are the list of people whom I would like to express my gratitude for helping me with this project:
 - [Andrey Vasnetsov (@generall)](https://github.com/generall)
 - [Cristian Baiunco (@Lv-291)](https://github.com/Lv-291)
 - [Jan (@frjnn)](https://github.com/frjnn)
