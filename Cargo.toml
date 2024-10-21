@@ -1,6 +1,6 @@
 [package]
 name = "wasm-dist-bhtsne"
-version = "1.0.4"
+version = "1.1.0"
 authors = [
     "J16N",
     "lv291 <baiunco291@proton.me>",
