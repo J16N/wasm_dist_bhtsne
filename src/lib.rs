@@ -78,11 +78,11 @@ impl DistbhtSNEf32 {
         distances: &[f32],
         indices: &[usize],
         n_samples: usize,
-        n_neighbors: usize,
         opt: JsValue,
     ) -> Result<DistbhtSNEf32, JsValue> {
         set_panic_hook();
         let hyperparameters: Hyperparameters<f32> = serde_wasm_bindgen::from_value(opt).unwrap();
+        let n_neighbors = (3.0 * hyperparameters.perplexity) as usize;
         let distances: Vec<tsne::Aligned<f32>> =
             distances.iter().map(|el| tsne::Aligned(*el)).collect();
         let p_columns: Vec<tsne::Aligned<usize>> =
@@ -139,11 +139,11 @@ impl DistbhtSNEf64 {
         distances: &[f64],
         indices: &[usize],
         n_samples: usize,
-        n_neighbors: usize,
         opt: JsValue,
     ) -> Result<DistbhtSNEf64, JsValue> {
         set_panic_hook();
         let hyperparameters: Hyperparameters<f64> = serde_wasm_bindgen::from_value(opt).unwrap();
+        let n_neighbors = (3.0 * hyperparameters.perplexity) as usize;
         let distances: Vec<tsne::Aligned<f64>> =
             distances.iter().map(|el| tsne::Aligned(*el)).collect();
         let p_columns: Vec<tsne::Aligned<usize>> =
