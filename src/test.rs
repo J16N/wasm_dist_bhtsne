@@ -213,7 +213,7 @@ fn barnes_hut_tsne() {
     let opt_js: JsValue = serde_wasm_bindgen::to_value(&opt).unwrap();
     let mut tsne: DistbhtSNEf32;
 
-    match DistbhtSNEf32::new(&distances, &indices, n_samples, n_neighbors, opt_js) {
+    match DistbhtSNEf32::new(&distances, &indices, n_samples, opt_js) {
         Ok(t) => tsne = t,
         Err(e) => panic!("Error: {:?}", e),
     }
