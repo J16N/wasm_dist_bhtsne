@@ -35,7 +35,7 @@ wasm-bindgen = "0.2.92"
 # all the `std::fmt` and `std::panicking` infrastructure, so isn't great for
 # code size when deploying.
 console_error_panic_hook = { version = "0.1.7", optional = true }
-getrandom = { version = "0.2.12", features = ["js"] }
+getrandom = { version = "0.3.2", features = ["js"] }
 wasm-bindgen-rayon = { version = "1.2.1", optional = true }
 rand_distr = "0.4.3"
 rayon = { version = "1.9.0", features = ["web_spin_lock"] }
